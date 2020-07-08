@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://sarahdayan.dev/ -->
+<html lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  
+  <div id="twoseven-scripts" data-info="Scripts added by TwoSeven extension" style="display: none !important; position: static !important; top: 0px !important; left: 0px !important; width: 0px !important; height: 0px !important;">
+
+  <script type="text/javascript" id="__tmpScript-273596097" data-added-by-two-seven="1">(function() {
+    window.twoseven = {};
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-666382292" data-added-by-two-seven="1">(function() {
+    window.twoseven.waitForDOMNode = async function waitForDOMNode(e,t=document){e=e||{};const{type:n,value:o}=e;if(!n||!o)throw new Error("Must specify identifier");let s=o;switch(n){case"tag":s=o.toUpperCase()}if("check"!==n){const e=await i({type:"selector",value:s},[],t);if(e)return new Promise(t=>t(e))}async function i({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t);break;case"check":for(const e of n){if(await t(e))return e}}return s}return new Promise((e,o)=>{const r=new MutationObserver(async o=>{for(const a of o)if("childList"===a.type){const o=Array.from(a.addedNodes),c=await i({type:n,value:s},o,t);if(c)return r.disconnect(),e(c)}});r.observe(t,{childList:!0,subtree:!0})})};
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-905345802" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.reportError = function reportError(e,t,n){"string"==typeof n&&(n={message:n}),Object.assign(n,{error:{message:t.message,stack:t.stack}}),window.tsExtGetPostToParent()({name:name,tag:e,action:"report-error",json:n}),console.error(JSON.stringify(n.error))}
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-115614332" data-added-by-two-seven="1">(function() {
+    
+  window.twosevenHmsToSecondsOnly = function(str) {
+      var p = str.split(':'),
+          s = 0, m = 1;
+
+      while (p.length > 0) {
+          s += m * parseInt(p.pop(), 10);
+          m *= 60;
+      }
+
+      return s;
+  }
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-840142032" data-added-by-two-seven="1">(function() {
+    window.twosevenExtLog = function twosevenExtLog(e,o,c){o||(o=e,e=void 0);let n=c||"black";if(c)switch(c){case"success":n="Green";break;case"info":n="DodgerBlue";break;case"error":n="Red";break;case"warning":n="Orange";break;default:n=c}e?console.log("%c"+e+": "+o,`color:${n}`):console.log("%c"+o,`color:${n}`)};
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-505085741" data-added-by-two-seven="1">(function() {
+    
+  document.twosevenGET = function(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+        if (xmlhttp.status == 200) {
+          callback(null, xmlhttp.responseText);
+        } else {
+          callback('something else other than 200 was returned', '');
+        }
+      }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  };
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-330495358" data-added-by-two-seven="1">(function() {
+    
+  window.triggerEvent = function(e,t,n,o=!1){let s;window.twosevenScriptsDiv&&n&&"object"==typeof n&&(console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(n)}`),console.error((new Error).stack)),s=o?n:{data:n};var i=new CustomEvent(t,{bubbles:!0,composed:!0,detail:s});e.dispatchEvent(i)}
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-554489057" data-added-by-two-seven="1">(function() {
+    window.twoseven.postTo = async function postTo(e,t,n=!1){let o;return t.name=t.name||name,o=n?new Promise(e=>{const n=`ack-${t.action}-${1e9*Math.random()|0}`;t.ack={event:n};window.debug&&["play","pause","currentTime"].some(e=>t.action.includes(e)),window.addEventListener("message",function t({data:o={}}){o.action===n&&(window.removeEventListener("message",t),e(o.json))})}):new Promise(e=>e()),e.postMessage(t,"*"),o};
+  })();</script><script type="text/javascript" id="__tmpScript-897662071" data-added-by-two-seven="1">(function() {
+    window.tsExtGetPostTo = function tsExtGetPostTo(){return window.twoseven&&window.twoseven.postTo||window.postTo};
+  })();</script><script type="text/javascript" id="__tmpScript-296747105" data-added-by-two-seven="1">(function() {
+    window.tsExtGetPostToParent = function tsExtGetPostToParent(){return window.twoseven&&window.twoseven.postToParent||window.postToParent};
+  })();</script><script type="text/javascript" id="__tmpScript-505882643" data-added-by-two-seven="1">(function() {
+    window.twoseven.postResponse = async function postResponse(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+  })();</script><script type="text/javascript" id="__tmpScript-728024892" data-added-by-two-seven="1">(function() {
+    window.twoseven.postToParent = async function postToParent(e,t=!1){return window.tsExtGetPostTo()(window.parent,e,t)};
+  })();</script><script type="text/javascript" id="__tmpScript-495847853" data-added-by-two-seven="1">(function() {
+    window.twoseven.postToTop = async function postToTop(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+  })();</script><script type="text/javascript" id="__tmpScript-270826638" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.getFromStorage = e=>new Promise((t,n)=>{const o="get-from-storage-"+(1e9*Math.random()|0);window.addEventListener(o,e=>{window.removeEventListener(o,this);const{detail:{data:{value:n}}}=e;t(n)}),triggerEvent(window,"get-from-storage",{key:e,evt:o})})
+  window.twoseven.saveToStorage = e=>{triggerEvent(window,"save-to-storage",e)}
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-539883338" data-added-by-two-seven="1">(function() {
+    
+  function attachHistoryListeners(){var e=history.pushState;history.pushState=function(t,n,o){return"function"==typeof history.onpushstate&&history.onpushstate({state:t}),triggerEvent(window,"pushstate",{uri:o}),e.apply(history,arguments)};var t=history.replaceState;history.replaceState=function(e){return"function"==typeof history.onreplacestate&&history.onreplacestate({state:e}),t.apply(history,arguments)}}
+  attachHistoryListeners()
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-857497105" data-added-by-two-seven="1">(function() {
+    window.twoseven.once = function once(e,t,n){e.addEventListener(t,function o(s){e.removeEventListener(t,o),n(s)})};
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-538960438" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.isOnTwoSevenTab = async () => {
+    const result = await window.twoseven.postTo(window, { action: 'is-on-twoseven-tab' }, true)
+    return result
+  }
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-688307152" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.isPaused = async () => {
+    const result = await window.twoseven.postTo(window, { action: 'twoseven:pause-state' }, true)
+    return result
+  }
+;
+  })();</script>
+  
+  <script type="text/javascript" id="__tmpScript-292006188" data-added-by-two-seven="1">(function() {
+    
+      const modal = document.querySelector('.twoseven-ext-tab-media-modal')
+      const modalCloseBtn = modal.querySelector('.close')
+      function closeModal () {
+        modal.style.display = 'none'
+        const frame = document.querySelector('#twoseven-ext-tab-media-iframe').contentWindow
+        frame.postMessage({
+          __evt_name: 'modal-hide'
+        }, '*')
+      }
+      modalCloseBtn.onclick = closeModal
+
+      window.onmessage = function (e) {
+        if (e.data.__evt_name === 'modal-hide') {
+          closeModal()
+        }
+      }
+
+      window.twoseven.closeTabMediaModal = closeModal
+
+      window.onclick = function (e) {
+        if (e.target.id === 'twoseven-ext-tab-media-modal' && modal.style.display === 'block') {
+            closeModal()
+        }
+      }
+    ;
+  })();</script>
+
+  </div>
+
+
+  
+  
+  
+  
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sadman Amin</title><meta name="gridsome:hash" content="66ad0333456f91421159ad88399f684fb455f30a"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.19"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" name="description" content="Sarah Dayan | Staff Software Engineer at Algolia | Creator of Dinero.js | TypeScript, JavaScript, Vue.js, CSS"><meta data-vue-tag="ssr" name="author" content="Sadman Amin"><meta data-vue-tag="ssr" name="designer" content="Nicolas Meuzard"><meta data-vue-tag="ssr" name="og:title" content="Sarah Dayan"><meta data-vue-tag="ssr" name="og:site_name" content="Sarah Dayan"><meta data-vue-tag="ssr" name="og:image" content="https://sarahdayan.dev/sarah-dayan.jpg"><meta data-vue-tag="ssr" name="og:description" content="Sarah Dayan | Staff Software Engineer at Algolia | Creator of Dinero.js | TypeScript, JavaScript, Vue.js, CSS"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="https://sarahdayan.dev/assets/static/favicon.ce0531f.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="https://sarahdayan.dev/assets/static/favicon.ac8d93a.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="https://sarahdayan.dev/assets/static/favicon.b9532cc.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="https://sarahdayan.dev/assets/static/favicon.f22e9f3.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="https://sarahdayan.dev/assets/static/favicon.62d22cb.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="https://sarahdayan.dev/assets/static/favicon.1539b60.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="https://sarahdayan.dev/assets/static/favicon.dc0cdc5.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://sarahdayan.dev/assets/static/favicon.7b22250.55d6f59846bb9b5159bd78e741c409b4.png"><link data-vue-tag="ssr" rel="stylesheet" href="./Sarah Dayan_files/css"><link rel="preload" href="./Sarah Dayan_files/3.styles.502a9169.css" as="style"><link rel="preload" href="./Sarah Dayan_files/app.7b03c33f.js.download" as="script"><link rel="preload" href="./Sarah Dayan_files/page--src--pages--index-vue.c15e974e.js.download" as="script"><link rel="prefetch" href="https://sarahdayan.dev/assets/js/page--node-modules--gridsome--app--pages--404-vue.ac4c7221.js"><link rel="stylesheet" href="./Sarah Dayan_files/3.styles.502a9169.css"><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  <script charset="utf-8" src="./Sarah Dayan_files/page--src--pages--index-vue.c15e974e.js.download"></script><link href="chrome-extension://cjdnfmjmdligcpfcekfmenlhiopehjkd/web_resources/modal/modal.css" rel="stylesheet" id="__tmpStyle">
+  </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <body class="bg-night overflow-x-hidden" data-vue-tag="%7B%22class%22:%7B%22ssr%22:%22bg-night%20overflow-x-hidden%22%7D%7D" data-gr-c-s-loaded="true">
+
+
+  <div id="app" class="relative flex flex-col w-screen mx-auto font-sans text-base max-w-1440 text-dawn md:flex-row">
+    <div class="md:hidden">
+      <div class="fixed top-0 left-0 z-30 w-full h-64 transition bg-dusk -shift-y-64">
+
+      </div>
+      <div class="fixed top-0 left-0 z-50 w-full h-64 transition -shift-y-64">
+        <div class="absolute top-0 w-full h-24 gradient-y-dusk-transparent">
+
+        </div>
+        <div class="absolute bottom-0 w-full h-24 gradient-y-transparent-dusk">
+
+        </div>
+      </div>
+      <div class="fixed top-0 left-0 z-50 w-full h-32 mt-64 transition gradient-y-night-transparent -shift-y-96">
+
+      </div>
+    </div>
+    <div class="static flex flex-col justify-between w-full p-32 md:max-w-408 lg:max-w-496 md:fixed md:h-screen lg:py-88 lg:pl-88 md:pr-0">
+      <div class="flex flex-col">
+        <div><h1 class="text-2xl font-bold leading-tight lg:text-4xl lg:leading-none text-zenith">
+          Hello, I’m Sadman Amin
+            </h1>
+            <div class="leading-loose">
+              <p class="mt-32">
+            I'm a Computer Science graduate and bla bla
+              </p>
+            </div>
+          </div>
+
+
+
+
+
+          <nav class="text-sm font-bold uppercase text-widest hidden mt-72 md:block">
+            <ul class="flex flex-row md:flex-col md:-my-16">
+              <li class="md:my-16">
+                <a href="#projects" class="inline-flex items-center hover:text-zenith transition group text-zenith">
+                  <span class="text-xs tracking-wide">01</span>
+                  <span class="inline-block w-24 h-px mx-16 -mt-px group-hover:w-48 bg-dawn group-hover:bg-zenith transition w-48 bg-zenith"></span>
+                  <span class="text-xs tracking-widest uppercase">Projects</span>
+                </a>
+              </li>
+              <li class="md:my-16">
+                <a href="#publication" class="inline-flex items-center hover:text-zenith transition group">
+                  <span class="text-xs tracking-wide">02</span>
+                  <span class="inline-block w-24 h-px mx-16 -mt-px group-hover:w-48 bg-dawn group-hover:bg-zenith transition"></span>
+                  <span class="text-xs tracking-widest uppercase">Publication</span>
+                </a>
+              </li>
+              <li class="md:my-16">
+                <a href="#interviews" class="inline-flex items-center hover:text-zenith transition group">
+                  <span class="text-xs tracking-wide">03</span>
+                  <span class="inline-block w-24 h-px mx-16 -mt-px group-hover:w-48 bg-dawn group-hover:bg-zenith transition"></span>
+                  <span class="text-xs tracking-widest uppercase">Interviews</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+
+
+        <div class="flex items-center w-full mt-32 md:mt-72">
+          <img alt="Sarah Dayan&#39;s headshot" src="./Sarah Dayan_files/sarah-dayan.d042d20.111694ebd57deef3130aff719cb07222.jpg" width="400" data-src="/assets/static/sarah-dayan.d042d20.111694ebd57deef3130aff719cb07222.jpg" data-srcset="/assets/static/sarah-dayan.d042d20.111694ebd57deef3130aff719cb07222.jpg 400w" data-sizes="(max-width: 400px) 100vw, 400px" class="w-48 h-48 mr-32 rounded-full g-image g-image--lazy g-image--loaded" srcset="/assets/static/sarah-dayan.d042d20.111694ebd57deef3130aff719cb07222.jpg 400w" sizes="(max-width: 400px) 100vw, 400px">
+          <noscript>
+            <img src="/assets/static/sarah-dayan.d042d20.111694ebd57deef3130aff719cb07222.jpg" class="w-48 h-48 mr-32 rounded-full g-image g-image--loaded" width="400" alt="Sarah Dayan's headshot">
+          </noscript>
+          <ul class="flex -mx-16 text-zenith">
+
+            <li class="mx-16">
+              <a href="https://twitter.com/frontstuff_io" rel="noopener" target="_blank" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="w-16 h-16 mr-16 fill-current">
+                  <title>Twitter icon</title>
+                  <path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-3.594-1.555c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 3.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 19.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 4.557z"></path>
+                </svg>
+                <span class="mt-px">Twitter</span>
+                <div class="w-16 p-2 ml-8">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 12 12" aria-hidden="true" class="flex-none stroke-current">
+                    <title>External link icon</title>
+                    <path d="M10.976 1.193A.314.314 0 0010.687 1H6.312a.313.313 0 000 .625h3.62L5.467 6.091a.313.313 0 00.443.442l4.466-4.466v3.62a.313.313 0 00.625 0V1.313a.328.328 0 00-.024-.119z"></path>
+                    <path d="M3.5 1v.625H2.25a.625.625 0 00-.625.625v7.5c0 .345.28.625.625.625h7.5c.345 0 .625-.28.625-.625V8.5H11v1.875c0 .345-.28.625-.625.625h-8.75A.625.625 0 011 10.375v-8.75C1 1.28 1.28 1 1.625 1H3.5z"></path>
+                  </svg>
+                </div>
+              </a>
+            </li>
+
+            <li class="mx-16">
+              <a href="https://github.com/sadmanamin" rel="noopener" target="_blank" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="w-16 h-16 mr-16 fill-current">
+                  <title>GitHub icon</title>
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+                </svg>
+                <span class="mt-px">GitHub</span>
+                <div class="w-16 p-2 ml-8">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 12 12" aria-hidden="true" class="flex-none stroke-current">
+                    <title>External link icon</title>
+                    <path d="M10.976 1.193A.314.314 0 0010.687 1H6.312a.313.313 0 000 .625h3.62L5.467 6.091a.313.313 0 00.443.442l4.466-4.466v3.62a.313.313 0 00.625 0V1.313a.328.328 0 00-.024-.119z"></path>
+                    <path d="M3.5 1v.625H2.25a.625.625 0 00-.625.625v7.5c0 .345.28.625.625.625h7.5c.345 0 .625-.28.625-.625V8.5H11v1.875c0 .345-.28.625-.625.625h-8.75A.625.625 0 011 10.375v-8.75C1 1.28 1.28 1 1.625 1H3.5z"></path>
+                  </svg>
+                </div>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      
+      <div class="static p-32 md:max-w-536 lg:max-w-736 md:absolute md:right-0 lg:py-88 lg:pr-88 md:pl-0">
+
+        <div id="projects" class="md:pt-88 md:-mt-96">
+          <h2 class="sticky top-0 z-40 pt-24 text-sm font-bold tracking-widest uppercase md:sr-only text-zenith">
+            Projects</h2>
+          <div class="-my-8 group pt-32 pb-40 md:py-0">
+
+            <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork" class="bg-dusk transition md:group-hover:opacity-50 md:hover:opacity-important md:hover:scale-11/10x my-8">
+              <a href="https://github.com/sadmanamin/Geo-Reminder" target="_blank" rel="noopener" class="block p-40">
+                <p class="text-xs font-bold tracking-widest uppercase text-zenith">
+                  Android
+                </p>
+                <h3 itemprop="name" class="mt-8 text-lg font-semibold leading-tight text-zenith">
+                  Geo Reminder
+                </h3>
+                <p class="mt-8">A location based reminder app which gives a task reminder whenever someone enters or leaves a specific location. </p>
+                <div class="flex items-center mt-16">
+                  <div class="w-16 h-16 p-2 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.4 46.4" aria-hidden="true" class="w-full h-full -mt-px fill-current">
+                      <title>Star icon</title>
+                      <path d="M21.6 2c.3-.6.9-1 1.6-1 .7 0 1.3.4 1.6 1l5.8 11.7c.3.5.8.9 1.4 1l12.8 1.9c.7.1 1.2.6 1.4 1.2.2.6 0 1.4-.5 1.8l-9.3 9.1c-.4.4-.6 1-.5 1.6l2.2 12.9c.1.7-.2 1.4-.7 1.8-.6.4-1.3.5-1.9.1L24 39c-.5-.3-1.1-.3-1.7 0l-11.5 6.1c-.6.3-1.3.3-1.9-.1-.6-.4-.8-1.1-.7-1.8l2.2-12.9c.1-.6-.1-1.2-.5-1.6l-9.4-9c-.5-.5-.7-1.2-.5-1.8.2-.6.8-1.1 1.4-1.2l12.9-1.9c.6-.1 1.1-.5 1.4-1L21.6 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="mt-2 text-xs font-semibold leading-none tracking-wider">
+                    3
+                    <span class="sr-only">stars</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork" class="bg-dusk transition md:group-hover:opacity-50 md:hover:opacity-important md:hover:scale-11/10x my-8">
+              <a href="https://github.com/sadmanamin/Assista_DesktopApp" target="_blank" rel="noopener" class="block p-40">
+                <p class="text-xs font-bold tracking-widest uppercase text-zenith">
+                  Java
+                </p>
+                <h3 itemprop="name" class="mt-8 text-lg font-semibold leading-tight text-zenith">
+                  Assista - A desktop assistant
+                </h3>
+                <p class="mt-8">Assists user to do some personalized tasks and let user choose when to go on hibernate after a task is completed</p>
+                <div class="flex items-center mt-16">
+                  <div class="w-16 h-16 p-2 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.4 46.4" aria-hidden="true" class="w-full h-full -mt-px fill-current">
+                      <title>Star icon</title>
+                      <path d="M21.6 2c.3-.6.9-1 1.6-1 .7 0 1.3.4 1.6 1l5.8 11.7c.3.5.8.9 1.4 1l12.8 1.9c.7.1 1.2.6 1.4 1.2.2.6 0 1.4-.5 1.8l-9.3 9.1c-.4.4-.6 1-.5 1.6l2.2 12.9c.1.7-.2 1.4-.7 1.8-.6.4-1.3.5-1.9.1L24 39c-.5-.3-1.1-.3-1.7 0l-11.5 6.1c-.6.3-1.3.3-1.9-.1-.6-.4-.8-1.1-.7-1.8l2.2-12.9c.1-.6-.1-1.2-.5-1.6l-9.4-9c-.5-.5-.7-1.2-.5-1.8.2-.6.8-1.1 1.4-1.2l12.9-1.9c.6-.1 1.1-.5 1.4-1L21.6 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="mt-2 text-xs font-semibold leading-none tracking-wider">
+                    3
+                    <span class="sr-only">stars</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork" class="bg-dusk transition md:group-hover:opacity-50 md:hover:opacity-important md:hover:scale-11/10x my-8">
+              <a href="https://github.com/sadmanamin/Bharatia_Backend" target="_blank" rel="noopener" class="block p-40">
+                <p class="text-xs font-bold tracking-widest uppercase text-zenith">
+                  Android and PHP
+                </p>
+                <h3 itemprop="name" class="mt-8 text-lg font-semibold leading-tight text-zenith">
+                  Bharatia
+                </h3>
+                <p class="mt-8">An android app that lets people search and post for home rentals</p>
+                <div class="flex items-center mt-16">
+                  <div class="w-16 h-16 p-2 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.4 46.4" aria-hidden="true" class="w-full h-full -mt-px fill-current">
+                      <title>Star icon</title>
+                      <path d="M21.6 2c.3-.6.9-1 1.6-1 .7 0 1.3.4 1.6 1l5.8 11.7c.3.5.8.9 1.4 1l12.8 1.9c.7.1 1.2.6 1.4 1.2.2.6 0 1.4-.5 1.8l-9.3 9.1c-.4.4-.6 1-.5 1.6l2.2 12.9c.1.7-.2 1.4-.7 1.8-.6.4-1.3.5-1.9.1L24 39c-.5-.3-1.1-.3-1.7 0l-11.5 6.1c-.6.3-1.3.3-1.9-.1-.6-.4-.8-1.1-.7-1.8l2.2-12.9c.1-.6-.1-1.2-.5-1.6l-9.4-9c-.5-.5-.7-1.2-.5-1.8.2-.6.8-1.1 1.4-1.2l12.9-1.9c.6-.1 1.1-.5 1.4-1L21.6 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="mt-2 text-xs font-semibold leading-none tracking-wider">
+                    3
+                    <span class="sr-only">stars</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork" class="bg-dusk transition md:group-hover:opacity-50 md:hover:opacity-important md:hover:scale-11/10x my-8">
+              <a href="https://github.com/sadmanamin/BRACU_LibraryAutoRenew" target="_blank" rel="noopener" class="block p-40">
+                <p class="text-xs font-bold tracking-widest uppercase text-zenith">
+                  Python
+                </p>
+                <h3 itemprop="name" class="mt-8 text-lg font-semibold leading-tight text-zenith">
+                  Bracu Library Auto Renewal
+                </h3>
+                <p class="mt-8">Automatically renews the books taken from Bracu Library and saves the students like me from late renewal fee for not remembering to renew on time!</p>
+                <div class="flex items-center mt-16">
+                  <div class="w-16 h-16 p-2 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.4 46.4" aria-hidden="true" class="w-full h-full -mt-px fill-current">
+                      <title>Star icon</title>
+                      <path d="M21.6 2c.3-.6.9-1 1.6-1 .7 0 1.3.4 1.6 1l5.8 11.7c.3.5.8.9 1.4 1l12.8 1.9c.7.1 1.2.6 1.4 1.2.2.6 0 1.4-.5 1.8l-9.3 9.1c-.4.4-.6 1-.5 1.6l2.2 12.9c.1.7-.2 1.4-.7 1.8-.6.4-1.3.5-1.9.1L24 39c-.5-.3-1.1-.3-1.7 0l-11.5 6.1c-.6.3-1.3.3-1.9-.1-.6-.4-.8-1.1-.7-1.8l2.2-12.9c.1-.6-.1-1.2-.5-1.6l-9.4-9c-.5-.5-.7-1.2-.5-1.8.2-.6.8-1.1 1.4-1.2l12.9-1.9c.6-.1 1.1-.5 1.4-1L21.6 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="mt-2 text-xs font-semibold leading-none tracking-wider">
+                    3
+                    <span class="sr-only">stars</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      
+      
+      
+        <div id="publication" class="md:pt-88">
+          <h2 class="sticky top-0 z-40 pt-24 text-sm font-bold tracking-widest uppercase md:sr-only text-zenith">
+            Publication
+          </h2>
+          <div class="flex flex-wrap -my-4 md:-m-4 group pt-32 pb-40 md:py-0">
+            <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork" class="flex-none w-full my-4 md:m-4 md:w-240 md:min-h-240 lg:w-320 lg:min-h-320" style="transform: translateY(0px);">
+              <div class="flex flex-col justify-between w-full h-full p-40 min-h-inherit bg-dusk md:group-hover:opacity-50 md:hover:scale-11/10x md:hover:opacity-important transition">
+                <header>
+                  <h4 itemprop="name" class="text-xs font-bold tracking-widest uppercase text-zenith">
+                    ieee region 10 symposium 2020
+                  </h4>
+                  <div class="flex flex-col mt-8">
+                    <p>Dhaka, Bangladesh</p>
+                    <time itemprop="startDate" datetime="2020-06-23" content="2020-06-23" class="inline-block">June 07, 2020</time>
+                  </div>
+                </header>
+                <div class="flex flex-col mt-24">
+                  <h3 itemprop="name" class="text-lg font-semibold leading-tight text-zenith">
+                    Discationary Miner Nomination Algorithm for Secured IOTA enabled Crypto-Transation
+                  </h3>
+                  <footer class="mt-16">
+                    <ul class="flex -mx-8">
+                      <li class="mx-8">
+                        <a href="https://noti.st/sarahdayan/zjFPFu/learning-from-the-mistakes-of-a-v1" target="_blank" rel="noopener" class="flex items-center mt-px text-zenith">
+                          <span>Slides</span>
+                          <span class="block w-16 p-2 ml-4 text-dawn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 12 12" aria-hidden="true" class="flex-none stroke-current">
+                              <title>External link icon</title>
+                              <path d="M10.976 1.193A.314.314 0 0010.687 1H6.312a.313.313 0 000 .625h3.62L5.467 6.091a.313.313 0 00.443.442l4.466-4.466v3.62a.313.313 0 00.625 0V1.313a.328.328 0 00-.024-.119z"></path>
+                              <path d="M3.5 1v.625H2.25a.625.625 0 00-.625.625v7.5c0 .345.28.625.625.625h7.5c.345 0 .625-.28.625-.625V8.5H11v1.875c0 .345-.28.625-.625.625h-8.75A.625.625 0 011 10.375v-8.75C1 1.28 1.28 1 1.625 1H3.5z"></path>
+                            </svg>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </footer>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <p class="text-sm mt-104 ml-104 md:ml-160 transition opacity-0 shift-y-16">
+          Design by
+          <a href="https://dribbble.com/NicolasMzrd" target="_blank" rel="noopener" class="text-sunrise hover:text-zenith transition hover:underline">Nicolas Meuzard</a>.
+        </p>
+      </div>
+
+    <div class="fixed bottom-0 left-0 z-20 w-full h-32 pointer-events-none gradient-y-transparent-night"></div>
+    <div class="fixed top-0 left-0 z-20 w-full h-32 pointer-events-none gradient-y-night-transparent"></div>
+    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
+      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
+        <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 1135px; height: 10px;"></div>
+      </div>
+      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
+        <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 200%; height: 200%;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="./Sarah Dayan_files/app.7b03c33f.js.download" defer=""></script>
+  <script src="./Sarah Dayan_files/page--src--pages--index-vue.c15e974e.js.download" defer=""></script>
+  
+
+  <div>
+    <div id="twoseven-ext-tab-media-modal" class="twoseven-ext-tab-media-modal" style="display: none;">
+      <!-- Modal content -->
+      <div class="twoseven-ext-tab-media-modal-content">
+        <div class="iframe-container" style="height: 100%; width: 100%;">
+          <span class="close">×</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
